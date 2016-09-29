@@ -36,17 +36,19 @@ class PhotoViewController: UIViewController {
             if isNavigationBarHidden {
                 navigationBar.hidden = true
                 view.backgroundColor = .blackColor()
+                
+                guard let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else { return }
+                statusBar.alpha = 0
+                
             } else {
                 navigationBar.hidden = false
                 view.backgroundColor = .whiteColor()
+                
+                guard let statusBar = UIApplication.sharedApplication().valueForKey("statusBarWindow")?.valueForKey("statusBar") as? UIView else { return }
+                statusBar.alpha = 1
             }
-//            setNeedsStatusBarAppearanceUpdate()
         }
     }
-    
-//    override func prefersStatusBarHidden() -> Bool {
-//        return isNavigationBarHidden ? true : false
-//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
