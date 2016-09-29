@@ -33,6 +33,12 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         dataManager.delegate = self
         dataManager.getData(forPage: lastPageLoaded)
         lastPageLoaded += 1
+        
+        
+        let labelMark = UILabel(frame: CGRect(x: 0, y: -30, width: view.frame.width, height: 20) )
+        labelMark.textAlignment = .Center
+        labelMark.text = "Made by Matthew Tso"
+        collectionView?.addSubview(labelMark)
     }
 
     override func didReceiveMemoryWarning() {
