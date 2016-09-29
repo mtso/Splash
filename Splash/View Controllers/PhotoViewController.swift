@@ -11,6 +11,12 @@ import Kingfisher
 
 class PhotoViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var imageViewTrailingConstraint: NSLayoutConstraint!
+    
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var navigationBarTitle: UINavigationItem!
