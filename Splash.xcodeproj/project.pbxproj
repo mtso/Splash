@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F58B46A1D9C8B4600489F13 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B4691D9C8B4600489F13 /* CollectionViewController.swift */; };
+		7F58B46D1D9C8DD700489F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F58B46B1D9C8DD700489F13 /* Main.storyboard */; };
+		7F58B46F1D9C8E8400489F13 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */; };
 		7F87C5481D9C40790018C0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87C5471D9C40790018C0CD /* AppDelegate.swift */; };
-		7F87C54A1D9C40790018C0CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87C5491D9C40790018C0CD /* ViewController.swift */; };
-		7F87C54D1D9C40790018C0CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C54B1D9C40790018C0CD /* Main.storyboard */; };
 		7F87C54F1D9C40790018C0CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C54E1D9C40790018C0CD /* Assets.xcassets */; };
 		7F87C5521D9C40790018C0CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C5501D9C40790018C0CD /* LaunchScreen.storyboard */; };
 		7F87C55A1D9C43010018C0CD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F87C5591D9C43010018C0CD /* AFNetworking.framework */; };
@@ -31,10 +32,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7F58B4691D9C8B4600489F13 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "View Controllers/CollectionViewController.swift"; sourceTree = "<group>"; };
+		7F58B46C1D9C8DD700489F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = "View Controllers/PhotoViewController.swift"; sourceTree = "<group>"; };
 		7F87C5441D9C40790018C0CD /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87C5471D9C40790018C0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7F87C5491D9C40790018C0CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7F87C54C1D9C40790018C0CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F87C54E1D9C40790018C0CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F87C5511D9C40790018C0CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F87C5531D9C40790018C0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F1682AE1D9C57F800BC21FC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7F58B4691D9C8B4600489F13 /* CollectionViewController.swift */,
+				7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		7F87C53B1D9C40790018C0CD = {
 			isa = PBXGroup;
 			children = (
@@ -74,8 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				7F87C5471D9C40790018C0CD /* AppDelegate.swift */,
-				7F87C5491D9C40790018C0CD /* ViewController.swift */,
-				7F87C54B1D9C40790018C0CD /* Main.storyboard */,
+				7F58B46B1D9C8DD700489F13 /* Main.storyboard */,
+				7F1682AE1D9C57F800BC21FC /* View Controllers */,
 				7F87C54E1D9C40790018C0CD /* Assets.xcassets */,
 				7F87C5501D9C40790018C0CD /* LaunchScreen.storyboard */,
 				7F87C5531D9C40790018C0CD /* Info.plist */,
@@ -144,9 +155,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F58B46D1D9C8DD700489F13 /* Main.storyboard in Resources */,
 				7F87C5521D9C40790018C0CD /* LaunchScreen.storyboard in Resources */,
 				7F87C54F1D9C40790018C0CD /* Assets.xcassets in Resources */,
-				7F87C54D1D9C40790018C0CD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,18 +185,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F87C54A1D9C40790018C0CD /* ViewController.swift in Sources */,
+				7F58B46A1D9C8B4600489F13 /* CollectionViewController.swift in Sources */,
 				7F87C5481D9C40790018C0CD /* AppDelegate.swift in Sources */,
+				7F58B46F1D9C8E8400489F13 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7F87C54B1D9C40790018C0CD /* Main.storyboard */ = {
+		7F58B46B1D9C8DD700489F13 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7F87C54C1D9C40790018C0CD /* Base */,
+				7F58B46C1D9C8DD700489F13 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -294,6 +306,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Splash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtso.Splash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -310,6 +323,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Splash/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mtso.Splash;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -335,6 +349,7 @@
 				7F87C5581D9C40790018C0CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
