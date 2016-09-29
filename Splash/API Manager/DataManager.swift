@@ -30,7 +30,7 @@ class DataManager {
     func getData(forPage pageNumber: Int) {
         
         manager.GET("photos/?client_id=cfd0978593306a55d98b2ed41b174aed276da5a4f35a9d4dfd134fc2d654f817",
-                    parameters: [ "page": pageNumber, "per_page" : 18 ],
+                    parameters: [ "page": pageNumber, "per_page" : ItemsPerLoad ],
                     progress: nil,
                     success: { task, data in
                         

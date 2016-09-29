@@ -13,12 +13,6 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: UIImageView!
     
-    var data: PhotoModel? {
-        didSet {
-            getThumb(data!.thumbnailUrl!)
-        }
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -33,15 +27,4 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getThumb(urlString: String) {
-        let url = NSURL(string: urlString)
-        let data = NSData(contentsOfURL: url!)
-        if let imageView = self.imageView {
-            imageView.image = UIImage(data: data!)
-            print("loaded data")
-            self.setNeedsLayout()
-            self.setNeedsDisplay()
-        }
-        
-    }
 }

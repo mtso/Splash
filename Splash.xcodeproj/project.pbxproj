@@ -13,11 +13,11 @@
 		7F58B4731D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B4721D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift */; };
 		7F58B4791D9C9E2800489F13 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B4781D9C9E2800489F13 /* CollectionViewCell.swift */; };
 		7F58B47B1D9CA0A800489F13 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F58B47A1D9CA0A800489F13 /* DataManager.swift */; };
+		7F62655E1D9CE1AF00073458 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F62655D1D9CE1AF00073458 /* Kingfisher.framework */; };
 		7F87C5481D9C40790018C0CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F87C5471D9C40790018C0CD /* AppDelegate.swift */; };
 		7F87C54F1D9C40790018C0CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C54E1D9C40790018C0CD /* Assets.xcassets */; };
 		7F87C5521D9C40790018C0CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C5501D9C40790018C0CD /* LaunchScreen.storyboard */; };
 		7F87C55A1D9C43010018C0CD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F87C5591D9C43010018C0CD /* AFNetworking.framework */; };
-		7F87C55B1D9C43010018C0CD /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7F87C5591D9C43010018C0CD /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7FC988761D9CAF760039EE0C /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988751D9CAF760039EE0C /* PhotoModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				7F87C55B1D9C43010018C0CD /* AFNetworking.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,6 +41,7 @@
 		7F58B4721D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectionViewController+DelegateFlowLayout.swift"; path = "View Controllers/CollectionViewController+DelegateFlowLayout.swift"; sourceTree = "<group>"; };
 		7F58B4781D9C9E2800489F13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "View Controllers/CollectionViewCell.swift"; sourceTree = "<group>"; };
 		7F58B47A1D9CA0A800489F13 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "API Manager/DataManager.swift"; sourceTree = "<group>"; };
+		7F62655D1D9CE1AF00073458 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		7F87C5441D9C40790018C0CD /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87C5471D9C40790018C0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F87C54E1D9C40790018C0CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F87C55A1D9C43010018C0CD /* AFNetworking.framework in Frameworks */,
+				7F62655E1D9CE1AF00073458 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +78,7 @@
 		7F87C53B1D9C40790018C0CD = {
 			isa = PBXGroup;
 			children = (
+				7F62655D1D9CE1AF00073458 /* Kingfisher.framework */,
 				7F87C5591D9C43010018C0CD /* AFNetworking.framework */,
 				7F87C5461D9C40790018C0CD /* Splash */,
 				7F87C5451D9C40790018C0CD /* Products */,
@@ -191,6 +193,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			outputPaths = (
 			);
