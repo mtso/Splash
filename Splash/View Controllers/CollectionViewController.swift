@@ -11,8 +11,7 @@ import Kingfisher
 
 private let reuseIdentifier = "CollectionViewCell"
 
-let ItemsPerLoad = 63 //21
-
+let ItemsPerLoad = 30 // (maximum allowed)
 class CollectionViewController: UICollectionViewController, DataManagerDelegate {
     
     var photos = [PhotoModel]()
