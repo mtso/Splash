@@ -36,13 +36,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7F29B7071D9D7EA3000C45A9 /* PhotoViewController+ScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PhotoViewController+ScrollViewDelegate.swift"; path = "Splash/View Controllers/PhotoViewController+ScrollViewDelegate.swift"; sourceTree = SOURCE_ROOT; };
-		7F58B4691D9C8B4600489F13 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "Splash/View Controllers/CollectionViewController.swift"; sourceTree = SOURCE_ROOT; };
+		7F29B7071D9D7EA3000C45A9 /* PhotoViewController+ScrollViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "PhotoViewController+ScrollViewDelegate.swift"; path = "Splash/UI/PhotoViewController+ScrollViewDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		7F58B4691D9C8B4600489F13 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = Splash/UI/CollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		7F58B46C1D9C8DD700489F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = "Splash/View Controllers/PhotoViewController.swift"; sourceTree = SOURCE_ROOT; };
-		7F58B4721D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectionViewController+DelegateFlowLayout.swift"; path = "Splash/View Controllers/CollectionViewController+DelegateFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
-		7F58B4781D9C9E2800489F13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "Splash/View Controllers/CollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		7F58B47A1D9CA0A800489F13 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = "API Manager/DataManager.swift"; sourceTree = "<group>"; };
+		7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = Splash/UI/PhotoViewController.swift; sourceTree = SOURCE_ROOT; };
+		7F58B4721D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "CollectionViewController+DelegateFlowLayout.swift"; path = "Splash/UI/CollectionViewController+DelegateFlowLayout.swift"; sourceTree = SOURCE_ROOT; };
+		7F58B4781D9C9E2800489F13 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = Splash/UI/CollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7F58B47A1D9CA0A800489F13 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = Splash/Data/DataManager.swift; sourceTree = SOURCE_ROOT; };
 		7F62655D1D9CE1AF00073458 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		7F87C5441D9C40790018C0CD /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F87C5471D9C40790018C0CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		7F87C5511D9C40790018C0CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7F87C5531D9C40790018C0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F87C5591D9C43010018C0CD /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
-		7FC988751D9CAF760039EE0C /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = "API Manager/PhotoModel.swift"; sourceTree = "<group>"; };
+		7FC988751D9CAF760039EE0C /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Splash/Data/PhotoModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,8 @@
 				7FC988751D9CAF760039EE0C /* PhotoModel.swift */,
 			);
 			name = Data;
-			sourceTree = "<group>";
+			path = Splash;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
