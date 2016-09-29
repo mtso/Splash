@@ -88,7 +88,9 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         let urlString = photo.thumbnailUrl
         let url = NSURL(string: urlString!)
         
-        cell.imageView.kf_setImageWithURL(url)
+        
+        cell.imageView.kf_indicatorType = .Activity
+        cell.imageView.kf_setImageWithURL(url, placeholderImage: nil, optionsInfo: [.Transition(ImageTransition.Fade(0.1))], progressBlock: nil, completionHandler: nil)
         
         return cell
     }

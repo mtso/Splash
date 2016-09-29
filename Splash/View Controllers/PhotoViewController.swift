@@ -32,7 +32,9 @@ class PhotoViewController: UIViewController {
         if let imageUrl = self.imageUrl {
             let url = NSURL(string: imageUrl)
             
-            imageView.kf_setImageWithURL(url)
+            imageView.kf_indicatorType = .Activity
+            imageView.kf_setImageWithURL(url, placeholderImage: nil, optionsInfo: [.Transition(ImageTransition.Fade(0.1))], progressBlock: nil, completionHandler: nil)
+
         }
         if let name = self.name {
             navigationBarTitle.title = name
