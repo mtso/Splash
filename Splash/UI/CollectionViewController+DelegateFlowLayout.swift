@@ -19,6 +19,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
         let cellWidth = (collectionView.frame.width - cellSpacing * 2) / 3

@@ -10,6 +10,28 @@ import UIKit
 
 extension PhotoViewController: UIScrollViewDelegate {
     
+    func toggleZoom(location: CGPoint) {
+        
+        if scrollView.zoomScale > scrollView.minimumZoomScale {
+            scrollView.setZoomScale(scrollView.minimumZoomScale, animated: true)
+        } else {
+            let aspectRatio = view.frame.height / view.frame.width // (1.78)
+            let imageSize = imageView.image!.size
+            
+            var viewSize: CGSize
+            if imageSize.width > imageSize.height {
+                viewSize = CGSize(width: imageSize.height / aspectRatio, height: imageSize.height)
+            } else {
+                viewSize = CGSize(width: imageSize.width, height: imageSize.width / aspectRatio)
+            }
+
+            let centerX = location.x - viewSize.width / 2
+            let centerY = location.y - viewSize.height / 2
+            
+            scrollView.zoomToRect(CGRectMake(centerX, centerY, viewSize.width, viewSize.height), animated: true)
+        }
+    }
+    
     func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
         return imageView
     }
@@ -54,14 +76,3 @@ extension PhotoViewController: UIScrollViewDelegate {
         updateConstraints(for: view.bounds.size)
     }
 }
-
-//extension PhotoViewController: UIGestureRecognizerDelegate {
-
-//    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOfGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if otherGestureRecognizer.isKindOfClass(UILongPressGestureRecognizer) {
-//            print("long pressed")
-//            return true
-//        }
-//        return false
-//    }
-//}

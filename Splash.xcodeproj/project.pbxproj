@@ -20,6 +20,7 @@
 		7F87C5521D9C40790018C0CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F87C5501D9C40790018C0CD /* LaunchScreen.storyboard */; };
 		7F87C55A1D9C43010018C0CD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F87C5591D9C43010018C0CD /* AFNetworking.framework */; };
 		7FC988761D9CAF760039EE0C /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988751D9CAF760039EE0C /* PhotoModel.swift */; };
+		7FE50CD71D9DBD0B003F653F /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE50CD61D9DBD0B003F653F /* CreditsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		7F87C5531D9C40790018C0CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F87C5591D9C43010018C0CD /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		7FC988751D9CAF760039EE0C /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Splash/Data/PhotoModel.swift; sourceTree = SOURCE_ROOT; };
+		7FE50CD61D9DBD0B003F653F /* CreditsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsView.swift; path = UI/CreditsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				7F58B46E1D9C8E8400489F13 /* PhotoViewController.swift */,
 				7F29B7071D9D7EA3000C45A9 /* PhotoViewController+ScrollViewDelegate.swift */,
 				7F58B4781D9C9E2800489F13 /* CollectionViewCell.swift */,
+				7FE50CD61D9DBD0B003F653F /* CreditsView.swift */,
 			);
 			name = UI;
 			path = Splash;
@@ -219,6 +222,7 @@
 				7F58B46A1D9C8B4600489F13 /* CollectionViewController.swift in Sources */,
 				7F87C5481D9C40790018C0CD /* AppDelegate.swift in Sources */,
 				7FC988761D9CAF760039EE0C /* PhotoModel.swift in Sources */,
+				7FE50CD71D9DBD0B003F653F /* CreditsView.swift in Sources */,
 				7F58B4731D9C93CF00489F13 /* CollectionViewController+DelegateFlowLayout.swift in Sources */,
 				7F58B46F1D9C8E8400489F13 /* PhotoViewController.swift in Sources */,
 			);

@@ -25,17 +25,44 @@ class PhotoViewController: UIViewController {
     var imageUrl: String?
     var name: String?
     
+    var zoomedInScale: CGFloat?
+    
     var isImageLoaded = false
+    
+    var activityIndicator: UIActivityIndicatorView?
+    
+    var isNavigationBarHidden = false {
+        didSet {
+            if isNavigationBarHidden {
+                navigationBar.hidden = true
+                view.backgroundColor = .blackColor()
+            } else {
+                navigationBar.hidden = false
+                view.backgroundColor = .whiteColor()
+            }
+//            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
+//    override func prefersStatusBarHidden() -> Bool {
+//        return isNavigationBarHidden ? true : false
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationBar.barTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.8)
-                
+        
         scrollView.delegate = self
         
-        setGestureRecognizer()
+        activityIndicator = UIActivityIndicatorView()
+        activityIndicator?.center = CGPoint(x: CGRectGetMidX(view.frame), y: CGRectGetMidY(view.frame))
+        activityIndicator?.color = .grayColor()
+        activityIndicator?.startAnimating()
+        
+        view.insertSubview(activityIndicator!, aboveSubview: scrollView)
+
+        setGestureRecognizers()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -43,17 +70,14 @@ class PhotoViewController: UIViewController {
         if let imageUrl = self.imageUrl {
             let url = NSURL(string: imageUrl)
             
-            imageView.kf_indicatorType = .Activity
-            
             imageView.kf_setImageWithURL(url, placeholderImage: nil, optionsInfo: [.Transition(ImageTransition.Fade(0.1))], progressBlock: nil, completionHandler: { Void in
                 
                 self.isImageLoaded = true
+                self.activityIndicator?.stopAnimating()
                 
                 self.updateMinZoomScale(for: self.view.bounds.size)
                 self.updateConstraints(for: self.view.bounds.size)
-                
             })
-
         }
         if let name = self.name {
             navigationBarTitle.title = name
@@ -65,20 +89,40 @@ class PhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setGestureRecognizer() {
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(saveImage))
-        longPress.delegate = self
-//        self.view.gestureRecognizers = [longPress]
+    func setGestureRecognizers() {
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
         
-//        imageView.gestureRecognizers = [longPress]
-//        imageView.userInteractionEnabled = true
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        doubleTap.numberOfTapsRequired = 2
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap(_:)))
+        singleTap.numberOfTapsRequired = 1
+        singleTap.requireGestureRecognizerToFail(doubleTap)
         
         scrollView.addGestureRecognizer(longPress)
+        scrollView.addGestureRecognizer(doubleTap)
+        scrollView.addGestureRecognizer(singleTap)
+    }
+    
+    func handleLongPress(sender: UILongPressGestureRecognizer) {
+        if sender.state == .Began {
+            saveImage()
+        }
+    }
+    
+    func handleDoubleTap(sender: UITapGestureRecognizer) {
+        let location = sender.locationInView(imageView)
+        toggleZoom(location)
+    }
+    
+    func handleSingleTap(sender: UITapGestureRecognizer) {
+        isNavigationBarHidden = !isNavigationBarHidden
     }
     
     func saveImage() {
         if let image = imageView.image {
             let actionSheet = UIAlertController(title: "Save to Camera Roll", message: nil, preferredStyle: .ActionSheet)
+            
             let saveAction = UIAlertAction(title: "Save Image", style: .Default, handler: { Void in
                 UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
             })
@@ -87,7 +131,6 @@ class PhotoViewController: UIViewController {
             actionSheet.addAction(saveAction)
             actionSheet.addAction(cancelAction)
             
-            print("will present view controller")
             presentViewController(actionSheet, animated: true, completion: nil)
         }
     }

@@ -18,16 +18,16 @@ class DataManager {
     
     let manager = AFHTTPSessionManager(baseURL: NSURL(string: "https://api.unsplash.com/") )
     
-    
     init() {
-                
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
     }
     
     func getData(forPage pageNumber: Int) {
         
-        manager.GET("photos/?client_id=cfd0978593306a55d98b2ed41b174aed276da5a4f35a9d4dfd134fc2d654f817",
+        let clientId = "cfd0978593306a55d98b2ed41b174aed276da5a4f35a9d4dfd134fc2d654f817"
+        
+        manager.GET("photos/?client_id=" + clientId,
                     parameters: [ "page": pageNumber, "per_page" : ItemsPerLoad ],
                     progress: nil,
                     success: { task, data in
@@ -54,6 +54,5 @@ class DataManager {
                     failure: { task, error in
                         print(error)
                     })
-        
     }
 }
