@@ -34,8 +34,6 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         dataManager.delegate = self
         dataManager.getData(forPage: lastPageLoaded)
         lastPageLoaded += 1
-        
-        print(photos.count)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,14 +42,9 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     }
     
     func pushPhotoModels(photoModels: [PhotoModel]) {
-        for photo in photoModels {
-            print(photo.name)
-        }
         
         photos.appendContentsOf(photoModels)
         collectionView?.reloadData()
-        
-        print(photos.count)
     }
 
     
@@ -61,6 +54,16 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ShowPhotoSegue" {
+            
+            let selectedRow = collectionView?.indexPathsForSelectedItems()?.first?.row
+            let photo = photos[selectedRow!]
+            
+            let destination = segue.destinationViewController as! PhotoViewController
+            destination.imageUrl = photo.rawUrl
+            destination.name = photo.name
+        }
     }
  
 
@@ -95,44 +98,12 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        print(indexPath.row)
         performSegueWithIdentifier("ShowPhotoSegue", sender: self)
     }
-    
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
-    
-    }
-    */
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
         if indexPath.row + 1 == photos.count {
-            print("hit bottom")
-            
             dataManager.getData(forPage: lastPageLoaded)
             lastPageLoaded += 1
         }

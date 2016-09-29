@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hT4-AC-IXN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Collection View Controller-->
@@ -88,11 +89,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d1O-tm-61y">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkw-jL-rRK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="hSp-Uz-4jr">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="OWC-Li-8Ah">
+                                        <barButtonItem key="rightBarButtonItem" title="Close" id="OWC-Li-8Ah">
                                             <connections>
                                                 <segue destination="TRD-5K-7si" kind="unwind" unwindAction="unwindFromPhoto:" id="do9-gv-jhN"/>
                                             </connections>
@@ -103,33 +107,69 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="width" secondItem="PuU-iW-7EX" secondAttribute="width" id="3zA-Wf-2Fz"/>
                             <constraint firstItem="Hkw-jL-rRK" firstAttribute="centerX" secondItem="PuU-iW-7EX" secondAttribute="centerX" id="4iP-Z1-rmD"/>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="top" secondItem="Hkw-jL-rRK" secondAttribute="bottom" constant="85" id="68v-5c-xbu">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="d1O-tm-61y" secondAttribute="trailing" constant="66" id="78k-V2-Yrf">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="height" secondItem="PuU-iW-7EX" secondAttribute="height" id="KI5-RC-uFN"/>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="centerX" secondItem="PuU-iW-7EX" secondAttribute="centerX" id="Qhy-pA-N5T"/>
+                            <constraint firstItem="6ld-yH-dgn" firstAttribute="top" secondItem="d1O-tm-61y" secondAttribute="bottom" constant="323" id="eSc-FS-Bdc">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
                             <constraint firstItem="Hkw-jL-rRK" firstAttribute="top" secondItem="5dI-mO-vWX" secondAttribute="bottom" id="twL-qB-liD"/>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="leading" secondItem="PuU-iW-7EX" secondAttribute="leadingMargin" constant="54" id="vJW-K9-I8Y">
+                                <variation key="widthClass=compact" constant="-20"/>
+                            </constraint>
                             <constraint firstItem="Hkw-jL-rRK" firstAttribute="width" secondItem="PuU-iW-7EX" secondAttribute="width" id="xir-Nz-MUj"/>
+                            <constraint firstItem="d1O-tm-61y" firstAttribute="centerY" secondItem="PuU-iW-7EX" secondAttribute="centerY" id="z87-FB-7cz"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="d1O-tm-61y"/>
                                 <exclude reference="Hkw-jL-rRK"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="4iP-Z1-rmD"/>
                                 <exclude reference="twL-qB-liD"/>
                                 <exclude reference="xir-Nz-MUj"/>
+                                <exclude reference="3zA-Wf-2Fz"/>
+                                <exclude reference="68v-5c-xbu"/>
+                                <exclude reference="78k-V2-Yrf"/>
+                                <exclude reference="KI5-RC-uFN"/>
+                                <exclude reference="Qhy-pA-N5T"/>
+                                <exclude reference="vJW-K9-I8Y"/>
+                                <exclude reference="z87-FB-7cz"/>
+                                <exclude reference="eSc-FS-Bdc"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="d1O-tm-61y"/>
                                 <include reference="Hkw-jL-rRK"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="4iP-Z1-rmD"/>
                                 <include reference="twL-qB-liD"/>
                                 <include reference="xir-Nz-MUj"/>
+                                <include reference="3zA-Wf-2Fz"/>
+                                <exclude reference="68v-5c-xbu"/>
+                                <exclude reference="78k-V2-Yrf"/>
+                                <include reference="KI5-RC-uFN"/>
+                                <include reference="Qhy-pA-N5T"/>
+                                <exclude reference="vJW-K9-I8Y"/>
+                                <include reference="z87-FB-7cz"/>
+                                <exclude reference="eSc-FS-Bdc"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="navigationBar" destination="Hkw-jL-rRK" id="W83-cd-eeT"/>
+                        <outlet property="imageView" destination="d1O-tm-61y" id="lZM-1B-aVR"/>
+                        <outlet property="navigationBar" destination="Hkw-jL-rRK" id="KHI-Fo-x5l"/>
+                        <outlet property="navigationBarTitle" destination="hSp-Uz-4jr" id="I2g-Ft-NFC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="00f-cl-qaj" userLabel="First Responder" sceneMemberID="firstResponder"/>

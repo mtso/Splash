@@ -23,9 +23,7 @@ class DataManager {
                 
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
-        
     }
-    
     
     func getData(forPage pageNumber: Int) {
         

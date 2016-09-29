@@ -15,6 +15,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     // MARK: UICollectionViewDelegateFlowLayout
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
         return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
     

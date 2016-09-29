@@ -7,16 +7,36 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PhotoViewController: UIViewController {
 
     @IBOutlet var navigationBar: UINavigationBar!
+    @IBOutlet var imageView: UIImageView!
+    @IBOutlet var navigationBarTitle: UINavigationItem!
+    
+    var imageUrl: String?
+    var name: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationBar.barTintColor = UIColor.whiteColor()
+        navigationBar.barTintColor = UIColor.init(red: 1, green: 1, blue: 1, alpha: 0.8)
+        
+        imageView.contentMode = .ScaleAspectFit
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let imageUrl = self.imageUrl {
+            let url = NSURL(string: imageUrl)
+            
+            imageView.kf_setImageWithURL(url)
+        }
+        if let name = self.name {
+            navigationBarTitle.title = name
+        }
     }
 
     override func didReceiveMemoryWarning() {
