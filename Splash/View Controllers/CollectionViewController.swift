@@ -49,6 +49,7 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         
         photos.appendContentsOf(photoModels)
         collectionView?.reloadData()
+        
         print(photos.count)
     }
 
@@ -80,7 +81,24 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     
         // Configure the cell
         
-        cell.imageView.image = UIImage(named: "placeholder")
+//        cell.imageView.image = UIImage(named: "placeholder")
+        
+        /*
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let photo = self.photos[indexPath.row]
+            let urlString = photo.thumbnailUrl
+            let url = NSURL(string: urlString!)
+            let data = NSData(contentsOfURL: url!)
+            cell.imageView.image = UIImage(data: data!)
+        })
+        */
+        
+        let photo = photos[indexPath.row]
+        let urlString = photo.thumbnailUrl
+        let url = NSURL(string: urlString!)
+        let data = NSData(contentsOfURL: url!)
+
+        cell.imageView.image = UIImage(data: data!)
         
         return cell
     }
@@ -89,6 +107,7 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        print(indexPath.row)
         performSegueWithIdentifier("ShowPhotoSegue", sender: self)
     }
     

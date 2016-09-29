@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PhotoModelDelegate {
+    func thumbnailLoaded(for id: Int)
+}
+
 class PhotoModel {
     
     var rawUrl: String?

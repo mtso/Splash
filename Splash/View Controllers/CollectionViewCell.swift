@@ -33,7 +33,15 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func getThumb(url: String) {
+    func getThumb(urlString: String) {
+        let url = NSURL(string: urlString)
+        let data = NSData(contentsOfURL: url!)
+        if let imageView = self.imageView {
+            imageView.image = UIImage(data: data!)
+            print("loaded data")
+            self.setNeedsLayout()
+            self.setNeedsDisplay()
+        }
         
     }
 }
