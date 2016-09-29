@@ -34,7 +34,7 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         dataManager.getData(forPage: lastPageLoaded)
         lastPageLoaded += 1
         
-        
+        // Credits Label
         let labelMark = UILabel(frame: CGRect(x: 0, y: -30, width: view.frame.width, height: 20) )
         labelMark.textAlignment = .Center
         labelMark.text = "Made by Matthew Tso"
@@ -47,7 +47,6 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     }
     
     func pushPhotoModels(photoModels: [PhotoModel]) {
-        
         photos.appendContentsOf(photoModels)
         collectionView?.reloadData()
     }
