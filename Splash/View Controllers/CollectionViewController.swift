@@ -9,11 +9,17 @@
 import UIKit
 
 private let reuseIdentifier = "CollectionViewCell"
-private let cellSpacing: CGFloat = 2
 
-class CollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+let ItemsPerLoad = 21
 
+class CollectionViewController: UICollectionViewController, DataManagerDelegate {
     
+    var photos = [PhotoModel]()
+    
+    let dataManager = DataManager()
+
+    var lastPageLoaded = 1
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,17 +27,32 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Do any additional setup after loading the view.
+        dataManager.delegate = self
+        dataManager.getData(forPage: lastPageLoaded)
+        lastPageLoaded += 1
+        
+        print(photos.count)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func pushPhotoModels(photoModels: [PhotoModel]) {
+        for photo in photoModels {
+            print(photo.name)
+        }
+        
+        photos.appendContentsOf(photoModels)
+        collectionView?.reloadData()
+        print(photos.count)
+    }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -39,7 +60,7 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
     // MARK: UICollectionViewDataSource
 
@@ -51,24 +72,26 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
 
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 20
+        return photos.count
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! CollectionViewCell
     
         // Configure the cell
-        cell.backgroundColor = UIColor.blueColor()
-    
+        
+        cell.imageView.image = UIImage(named: "placeholder")
+        
         return cell
     }
 
     // MARK: UICollectionViewDelegate
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        print(indexPath.row)
+        
         performSegueWithIdentifier("ShowPhotoSegue", sender: self)
     }
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -98,34 +121,23 @@ class CollectionViewController: UICollectionViewController, UICollectionViewDele
     }
     */
     
-    // MARK: UICollectionViewDelegateFlowLayout
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cellWidth = (collectionView.frame.width - cellSpacing * 2) / 3
-        print(cellWidth)
-        return CGSize(width: cellWidth, height: cellWidth)
+        if indexPath.row + 1 == photos.count {
+            print("hit bottom")
+            
+            dataManager.getData(forPage: lastPageLoaded)
+            lastPageLoaded += 1
+        }
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        
-        return cellSpacing
-    }
-    
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        
-        return cellSpacing
-    }
 
     // MARK: Unwind Segue
     
     @IBAction func unwindFromPhoto(segue: UIStoryboardSegue) {
         
     }
+    
 }
 
 

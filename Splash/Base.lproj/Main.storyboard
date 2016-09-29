@@ -9,24 +9,59 @@
             <objects>
                 <collectionViewController id="hT4-AC-IXN" customClass="CollectionViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="9Ze-Yr-ZFH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5Ll-ga-YTd">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="oE5-uE-hhi">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="oE5-uE-hhi" customClass="CollectionViewCell" customModule="Splash" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p9K-Rh-rDU">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="p9K-Rh-rDU" firstAttribute="height" secondItem="oE5-uE-hhi" secondAttribute="height" id="5BE-qK-rto"/>
+                                    <constraint firstItem="p9K-Rh-rDU" firstAttribute="width" secondItem="oE5-uE-hhi" secondAttribute="width" id="Vw4-3x-cxN"/>
+                                    <constraint firstItem="p9K-Rh-rDU" firstAttribute="centerY" secondItem="oE5-uE-hhi" secondAttribute="centerY" id="eIh-BF-bTv"/>
+                                    <constraint firstItem="p9K-Rh-rDU" firstAttribute="centerX" secondItem="oE5-uE-hhi" secondAttribute="centerX" id="fu0-Uw-usD"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="p9K-Rh-rDU"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="5BE-qK-rto"/>
+                                        <exclude reference="Vw4-3x-cxN"/>
+                                        <exclude reference="eIh-BF-bTv"/>
+                                        <exclude reference="fu0-Uw-usD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="p9K-Rh-rDU"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="5BE-qK-rto"/>
+                                        <include reference="Vw4-3x-cxN"/>
+                                        <include reference="eIh-BF-bTv"/>
+                                        <include reference="fu0-Uw-usD"/>
+                                    </mask>
+                                </variation>
                                 <connections>
+                                    <outlet property="imageView" destination="p9K-Rh-rDU" id="J9C-P2-LwY"/>
                                     <segue destination="Zqg-N7-UXd" kind="show" identifier="ShowPhotoSegue" id="bZK-Th-KlI"/>
                                 </connections>
                             </collectionViewCell>
@@ -50,6 +85,7 @@
                         <viewControllerLayoutGuide type="bottom" id="6ld-yH-dgn"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="PuU-iW-7EX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hkw-jL-rRK">
