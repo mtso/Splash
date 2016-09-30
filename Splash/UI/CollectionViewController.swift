@@ -17,8 +17,11 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     var photos = [PhotoModel]()
     
     let dataManager = DataManager()
-
+    let kf = KingfisherManager()
+    
     var lastPageLoaded = 1
+    
+    var clearCacheLabel: UILabel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,52 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         let creditsView = CreditsView(width: view.frame.width, bottomOffset: -30)
         collectionView?.addSubview(creditsView)
         
+        clearCacheLabel = UILabel(frame: CGRect(x: 0, y: -164, width: view.frame.width, height: 20))
+        clearCacheLabel!.font = UIFont.systemFontOfSize(UIFont.systemFontSize(), weight: UIFontWeightMedium)
+        clearCacheLabel?.textColor = .redColor()
+        clearCacheLabel?.alpha = 0.2
+        clearCacheLabel?.textAlignment = .Center
+        clearCacheLabel?.text = "Pull Down to Clear Cache"
+        
+        collectionView?.addSubview(clearCacheLabel!)
+    }
+    
+    override func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y < -195 {
+            clearCacheLabel?.alpha = 1
+            clearCacheLabel?.text = "Release to Clear Cache"
+        } else {
+            clearCacheLabel?.alpha = 0.2
+            clearCacheLabel?.text = "Pull Down to Clear Cache"
+        }
+    }
+    
+    override func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if scrollView.contentOffset.y < -195 {
+            kf.cache.clearDiskCacheWithCompletionHandler({ Void in
+                print("disk cleared")
+                self.screenFlash()
+            })
+        }
+    }
+    
+    func screenFlash() {
+        let flashView = UIView(frame: view.frame)
+        flashView.backgroundColor = .whiteColor()
+        flashView.alpha = 0
+        
+        view.insertSubview(flashView, aboveSubview: collectionView!)
+        
+        UIView.animateWithDuration(0.2, animations: {
+            flashView.alpha = 1
+            }, completion: { Bool in
+                UIView.animateWithDuration(0.2, animations: {
+                    flashView.alpha = 0
+                }, completion: { Bool in
+                    flashView.removeFromSuperview()
+                })
+            })
     }
 
     override func didReceiveMemoryWarning() {
@@ -114,7 +163,6 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
         }
     }
     
-
     // MARK: Unwind Segue
     
     @IBAction func unwindFromPhoto(segue: UIStoryboardSegue) {

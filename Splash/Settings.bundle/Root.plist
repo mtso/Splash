@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>String</string>
+			<key>Value</key>
+			<string>Whatever the heck i want</string>
+			<key>Title</key>
+			<string>Group</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Attributions</string>
+			<key>FooterText</key>
+			<string>What is this info? http://github.com/onevcat/Kingfisher</string>
+		</dict>
+	</array>
+	<key>Title</key>
+	<dict>
+		<key>Type</key>
+		<string>PSTextFieldSpecifier</string>
+		<key>Title</key>
+		<string>Attributions</string>
+		<key>Key</key>
+		<string>&quot;SettingsPageTitle&quot;</string>
+	</dict>
+</dict>
+</plist>

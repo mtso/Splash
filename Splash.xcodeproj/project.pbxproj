@@ -21,6 +21,7 @@
 		7F87C55A1D9C43010018C0CD /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F87C5591D9C43010018C0CD /* AFNetworking.framework */; };
 		7FC988761D9CAF760039EE0C /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC988751D9CAF760039EE0C /* PhotoModel.swift */; };
 		7FE50CD71D9DBD0B003F653F /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE50CD61D9DBD0B003F653F /* CreditsView.swift */; };
+		7FE50CD91D9DE028003F653F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7FE50CD81D9DE028003F653F /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		7F87C5591D9C43010018C0CD /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		7FC988751D9CAF760039EE0C /* PhotoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoModel.swift; path = Splash/Data/PhotoModel.swift; sourceTree = SOURCE_ROOT; };
 		7FE50CD61D9DBD0B003F653F /* CreditsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreditsView.swift; path = UI/CreditsView.swift; sourceTree = "<group>"; };
+		7FE50CD81D9DE028003F653F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Splash/Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 		7F87C53B1D9C40790018C0CD = {
 			isa = PBXGroup;
 			children = (
+				7FE50CD81D9DE028003F653F /* Settings.bundle */,
 				7F62655D1D9CE1AF00073458 /* Kingfisher.framework */,
 				7F87C5591D9C43010018C0CD /* AFNetworking.framework */,
 				7F87C5461D9C40790018C0CD /* Splash */,
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FE50CD91D9DE028003F653F /* Settings.bundle in Resources */,
 				7F58B46D1D9C8DD700489F13 /* Main.storyboard in Resources */,
 				7F87C5521D9C40790018C0CD /* LaunchScreen.storyboard in Resources */,
 				7F87C54F1D9C40790018C0CD /* Assets.xcassets in Resources */,
