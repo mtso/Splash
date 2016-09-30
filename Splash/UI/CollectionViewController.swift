@@ -157,7 +157,7 @@ class CollectionViewController: UICollectionViewController, DataManagerDelegate 
     
     override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
         
-        if indexPath.row + 1 == photos.count {
+        if indexPath.row + 7 > photos.count {
             dataManager.getData(forPage: lastPageLoaded)
             lastPageLoaded += 1
         }
