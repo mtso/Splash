@@ -1,6 +1,8 @@
 # Splash
 Unofficial iOS unsplash client.
 
+[Video Demo](https://www.dropbox.com/s/t1kmisir8i673qf/splash.mov?dl=0)
+
 ## Author
 Matthew Tso
 
